@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root[data-theme="dark"] {
+  --bg-app: #05070f;
+  --bg-panel: rgba(15, 20, 36, 0.6);
+  --border-panel: rgba(148, 163, 184, 0.15);
+  --text-main: #e2e8f0;
+  --text-muted: #94a3b8;
+}
+
+:root[data-theme="light"] {
+  --bg-app: #f4f6fb;
+  --bg-panel: rgba(255, 255, 255, 0.75);
+  --border-panel: rgba(15, 23, 42, 0.08);
+  --text-main: #0f172a;
+  --text-muted: #475569;
+}
+
+body {
+  background: var(--bg-app);
+  color: var(--text-main);
+}
+
+/* Tarjeta estilo "Cyber-Glassmorphism": panel translúcido + blur + borde iluminado */
+.glass-panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-panel);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 1rem;
+}
+
+.progress-track {
+  background: rgba(148, 163, 184, 0.15);
+  border-radius: 9999px;
+  overflow: hidden;
+  height: 0.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.4s ease;
+}
+
+/* Blur automático para portadas +18, se revela con hover (pauta de diseño del proyecto) */
+.cover-adult {
+  filter: blur(18px);
+  transition: filter 0.25s ease;
+}
+.cover-adult:hover {
+  filter: blur(0);
+}
